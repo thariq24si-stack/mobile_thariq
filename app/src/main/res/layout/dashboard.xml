@@ -74,5 +74,15 @@
         app:cornerRadius="12dp"
         android:layout_marginTop="20dp" />
 
+    <Button
+        android:id="@+id/btnWeb"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:fontFamily="@font/monstserrat_black"
+        android:text="Buka Web"
+        android:textColor="@color/bank_yellow"
+        android:backgroundTint="@color/bank_text_grey"
+        app:cornerRadius="12dp"
+        android:layout_marginTop="20dp" />
 
 </LinearLayout>

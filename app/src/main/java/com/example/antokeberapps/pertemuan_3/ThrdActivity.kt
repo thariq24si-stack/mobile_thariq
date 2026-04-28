@@ -14,12 +14,31 @@ class ThrdActivity : AppCompatActivity() {
         binding = ActivityThirdBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
+
         binding.btnLogin.setOnClickListener {
-            val intent = Intent(this, ThirdResultActivity::class.java)
 
-            intent.putExtra("EXTRA_NAMA", "Thariq")
+            val username = "Thariq" // sementara (atau ambil dari EditText)
+            val password = "Thariq"
 
-            startActivity(intent)
+            if (username == password) {
+
+                val editor = sharedPref.edit()
+                editor.putBoolean("isLogin", true)
+                editor.putString("username", username)
+                editor.apply()
+
+                val intent = Intent(this, com.example.antokeberapps.pertemuan_4.DashboardActivity::class.java)
+                startActivity(intent)
+                finish()
+
+            } else {
+                androidx.appcompat.app.AlertDialog.Builder(this)
+                    .setTitle("Login Gagal")
+                    .setMessage("Silahkan coba lagi")
+                    .setPositiveButton("OK", null)
+                    .show()
+            }
         }
     }
 }

@@ -14,33 +14,41 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AntoKeberApps">
 
-        <!--  PERTEMUAN 5 -->
+
         <activity
-            android:name=".pertemuan_5.FifthActivity"
+            android:name=".Pertemuan_6.SplashActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
-        <!-- WebView Activity -->
+
         <activity
-            android:name=".pertemuan_5.WebViewActivity"
+            android:name=".pertemuan_3.ThrdActivity"
             android:exported="false" />
 
-        <!-- Pertemuan 4 -->
-        <activity android:name=".pertemuan_4.Custom_2Activity" android:exported="false" />
-        <activity android:name=".pertemuan_4.Custom_1Activity" android:exported="false" />
-        <activity android:name=".pertemuan_4.BRuangActivity" android:exported="false" />
-        <activity android:name=".pertemuan_4.DashboardActivity" android:exported="false" />
 
-        <!-- Pertemuan 3 -->
-        <activity android:name=".pertemuan_3.ThirdResultActivity" android:exported="false" />
-        <activity android:name=".pertemuan_3.ThrdActivity" android:exported="false" />
+        <activity
+            android:name=".pertemuan_4.DashboardActivity"
+            android:exported="false" />
 
-        <!-- Main -->
-        <activity android:name=".MainActivity" android:exported="false" />
+
+        <activity
+            android:name=".Pertemuan_6.WebViewActivity"
+            android:exported="false" />
+
+
+        <activity android:name=".pertemuan_4.Custom_2Activity" />
+        <activity android:name=".pertemuan_4.Custom_1Activity" />
+        <activity android:name=".pertemuan_4.BRuangActivity" />
+
+        <activity android:name=".pertemuan_3.ThirdResultActivity" />
+
+=        <activity android:name=".MainActivity" />
 
     </application>
 
