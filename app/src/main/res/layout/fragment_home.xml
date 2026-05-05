@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/bank_text_grey"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- TOOLBAR -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:title="Dashboard"
+        android:titleTextColor="#FFFFFF"
+        android:backgroundTint="#2A2A2A"
+        app:titleCentered="true"/>
+
+    <!-- CONTENT -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- BUTTON STYLE -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBangunRuang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bangun Ruang"
+                android:fontFamily="@font/monstserrat_black"
+                android:textColor="#FFFFFF"
+                app:backgroundTint="#FF8C00"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCustom1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Custom 1"
+                android:fontFamily="@font/monstserrat_black"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="12dp"
+                app:backgroundTint="#FF8C00"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCustom2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Custom 2"
+                android:fontFamily="@font/monstserrat_black"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="12dp"
+                app:backgroundTint="#FF8C00"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnWeb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Web View"
+                android:fontFamily="@font/monstserrat_black"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="12dp"
+                app:backgroundTint="#FF8C00"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Logout"
+                android:fontFamily="@font/monstserrat_black"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="20dp"
+                app:backgroundTint="#B00020"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
