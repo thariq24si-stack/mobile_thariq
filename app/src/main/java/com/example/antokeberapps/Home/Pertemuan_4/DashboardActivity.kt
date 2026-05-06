@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AlertDialog
+import com.example.antokeberapps.Home.pertemuan_3.ThirdResultActivity
 import com.example.antokeberapps.R
 import com.example.antokeberapps.databinding.DashboardBinding
 import com.example.antokeberapps.pertemuan_3.ThrdActivity
@@ -41,7 +42,7 @@ class DashboardActivity : AppCompatActivity() {
                 editor.clear()
                 editor.apply()
 
-                val intent = Intent(this, ThrdActivity::class.java)
+                val intent = Intent(this, ThirdResultActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
 

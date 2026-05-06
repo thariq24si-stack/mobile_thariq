@@ -10,7 +10,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.antokeberapps.databinding.ActivityMainBinding
 import com.example.antokeberapps.databinding.ActivityThirdBinding
-import com.example.antokeberapps.pertemuan_3.ThirdResultActivity
 import com.example.antokeberapps.pertemuan_4.FourthActivity
 
 class MainActivity : AppCompatActivity() {

@@ -1,34 +1,59 @@
-package com.example.antokeberapps.pertemuan_3
+package com.example.antokeberapps.Home.pertemuan_3
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-// Pastikan nama binding-nya sesuai dengan nama XML-mu (activity_third_result -> ActivityThirdResultBinding)
 import com.example.antokeberapps.databinding.ActivityThirdResultBinding
 import com.example.antokeberapps.pertemuan_4.DashboardActivity
 
-import kotlin.jvm.java
-
 class ThirdResultActivity : AppCompatActivity() {
 
-    // 1. Deklarasi binding
     private lateinit var binding: ActivityThirdResultBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // 2. Inisialisasi binding
         binding = ActivityThirdResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 3. Logika pindah ke Dashboard pakai ID tombol dari XML
-        // Misal di XML ID tombol loginnya adalah button2
+        // 🔹 LOGIN BUTTON
         binding.button2.setOnClickListener {
-            val intent = Intent(this, DashboardActivity::class.java)
-            startActivity(intent)
 
-            // Tutup halaman login biar gak bisa di-back
-            finish()
+            val username = binding.editTextTextEmailAddress.text.toString().trim()
+            val password = binding.editTextTextPassword.text.toString().trim()
+
+            val sp = getSharedPreferences("dataUser", MODE_PRIVATE)
+            val savedUser = sp.getString("username", "")
+            val savedPass = sp.getString("password", "")
+
+            if (username.isEmpty()) {
+                binding.editTextTextEmailAddress.error = "Username wajib diisi"
+                return@setOnClickListener
+            }
+
+            if (password.isEmpty()) {
+                binding.editTextTextPassword.error = "Password wajib diisi"
+                return@setOnClickListener
+            }
+
+            // RULE 1
+            if (username == password) {
+                Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, DashboardActivity::class.java))
+            }
+            // RULE 2
+            else if (username == savedUser && password == savedPass) {
+                Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, DashboardActivity::class.java))
+            } else {
+                binding.editTextTextPassword.error = "Username / Password salah"
+            }
+        }
+
+        // 🔹 REGISTER BUTTON
+        binding.button3.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
     }
 }
