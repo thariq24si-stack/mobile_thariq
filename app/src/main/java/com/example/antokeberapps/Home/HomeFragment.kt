@@ -4,10 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.antokeberapps.Data.Api.BeritaApiClient
+import com.example.antokeberapps.Home.Berita.BeritaAdapter
 import com.example.antokeberapps.databinding.FragmentHomeBinding
 import com.google.android.material.tabs.TabLayoutMediator
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 
@@ -33,10 +39,11 @@ class HomeFragment : Fragment() {
         view: View,
         savedInstanceState: Bundle?
     ) {
-
         super.onViewCreated(view, savedInstanceState)
 
         (requireActivity() as AppCompatActivity)
+            .setSupportActionBar(binding.toolbar)
+
         binding.toolbar.title = "Dashboard Bina Desa"
 
         val adapter = HomeTabsAdapter(
@@ -48,16 +55,45 @@ class HomeFragment : Fragment() {
         TabLayoutMediator(
             binding.tabLayout,
             binding.viewPager
-        ){ tab, position ->
+        ) { tab, position ->
 
-            when(position){
-
+            when (position) {
                 0 -> tab.text = "Edukasi"
                 1 -> tab.text = "Layanan"
                 2 -> tab.text = "Informasi"
             }
 
         }.attach()
+
+        loadBerita()
+    }
+
+    private fun loadBerita() {
+
+        viewLifecycleOwner.lifecycleScope.launch {
+
+            try {
+
+                val beritaList =
+                    BeritaApiClient.apiService.getBerita()
+
+                binding.rvBerita.layoutManager =
+                    LinearLayoutManager(requireContext())
+
+                binding.rvBerita.adapter =
+                    BeritaAdapter(beritaList)
+
+            } catch (e: Exception) {
+
+                Toast.makeText(
+                    requireContext(),
+                    "Gagal memuat berita",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                e.printStackTrace()
+            }
+        }
     }
 
     override fun onDestroyView() {

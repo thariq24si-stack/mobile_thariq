@@ -1,73 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:theme="@style/Theme.AntoKeberApps">
 
-        <!-- LAUNCHER -->
-
+        <!-- ONBOARDING -->
         <activity
-            android:name=".BaseActivity"
+            android:name=".Home.onboarding.OnboardingActivity"
             android:exported="true">
 
             <intent-filter>
-
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category
-                    android:name="android.intent.category.LAUNCHER"/>
-
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
         </activity>
 
-        <!-- DATA FOTO -->
+        <!-- BaseActivity -->
+        <activity
+            android:name=".BaseActivity"
+            android:exported="false" />
 
+        <!-- DATA FOTO -->
         <activity
             android:name=".DataFoto.DataFotoActivity"
-            android:exported="false"/>
+            android:exported="false" />
 
         <!-- PERTEMUAN 3 -->
-
         <activity
             android:name=".Home.pertemuan_3.RegisterActivity"
-            android:exported="false"/>
+            android:exported="false" />
 
         <activity
             android:name=".Home.pertemuan_3.ThirdResultActivity"
-            android:exported="false"/>
+            android:exported="false" />
 
         <activity
-            android:name=".pertemuan_3.ThrdActivity"/>
+            android:name=".pertemuan_3.ThrdActivity" />
 
         <!-- PERTEMUAN 4 -->
+        <activity
+            android:name=".pertemuan_4.Custom_1Activity" />
 
         <activity
-            android:name=".pertemuan_4.Custom_1Activity"/>
+            android:name=".pertemuan_4.Custom_2Activity" />
 
         <activity
-            android:name=".pertemuan_4.Custom_2Activity"/>
-
-        <activity
-            android:name=".pertemuan_4.BRuangActivity"/>
+            android:name=".pertemuan_4.BRuangActivity" />
 
         <!-- PERTEMUAN 6 -->
-
         <activity
-            android:name=".Pertemuan_6.WebViewActivity"/>
+            android:name=".Pertemuan_6.WebViewActivity" />
 
         <!-- PERTEMUAN 9 -->
-
         <activity
             android:name=".pertemuan_9.Pertemuan9Activity"
-            android:exported="false"/>
+            android:exported="false" />
 
         <activity
             android:name=".pertemuan_9.SettingsActivity"
-            android:exported="false"/>
+            android:exported="false" />
 
     </application>
 
