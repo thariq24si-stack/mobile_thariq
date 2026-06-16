@@ -7,19 +7,27 @@
         android:allowBackup="true"
         android:theme="@style/Theme.AntoKeberApps">
 
+        <!-- MAIN ACTIVITY -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+
+        <!-- ROOM DATABASE -->
+        <activity
+            android:name=".Home.Note.NoteFormActivity"
+            android:exported="false" />
+
         <!-- ONBOARDING -->
         <activity
             android:name=".Home.onboarding.OnboardingActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
-        <!-- BaseActivity -->
+        <!-- BASE ACTIVITY -->
         <activity
             android:name=".BaseActivity"
             android:exported="false" />
@@ -39,21 +47,26 @@
             android:exported="false" />
 
         <activity
-            android:name=".pertemuan_3.ThrdActivity" />
+            android:name=".pertemuan_3.ThrdActivity"
+            android:exported="false" />
 
         <!-- PERTEMUAN 4 -->
         <activity
-            android:name=".pertemuan_4.Custom_1Activity" />
+            android:name=".pertemuan_4.Custom_1Activity"
+            android:exported="false" />
 
         <activity
-            android:name=".pertemuan_4.Custom_2Activity" />
+            android:name=".pertemuan_4.Custom_2Activity"
+            android:exported="false" />
 
         <activity
-            android:name=".pertemuan_4.BRuangActivity" />
+            android:name=".pertemuan_4.BRuangActivity"
+            android:exported="false" />
 
         <!-- PERTEMUAN 6 -->
         <activity
-            android:name=".Pertemuan_6.WebViewActivity" />
+            android:name=".Pertemuan_6.WebViewActivity"
+            android:exported="false" />
 
         <!-- PERTEMUAN 9 -->
         <activity

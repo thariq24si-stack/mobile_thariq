@@ -25,13 +25,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-        _binding = FragmentHomeBinding.inflate(
-            inflater,
-            container,
-            false
-        )
-
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -46,9 +40,7 @@ class HomeFragment : Fragment() {
 
         binding.toolbar.title = "Dashboard Bina Desa"
 
-        val adapter = HomeTabsAdapter(
-            requireActivity()
-        )
+        val adapter = HomeTabsAdapter(requireActivity())
 
         binding.viewPager.adapter = adapter
 
@@ -74,14 +66,14 @@ class HomeFragment : Fragment() {
 
             try {
 
-                val beritaList =
+                val berita =
                     BeritaApiClient.apiService.getBerita()
 
                 binding.rvBerita.layoutManager =
                     LinearLayoutManager(requireContext())
 
                 binding.rvBerita.adapter =
-                    BeritaAdapter(beritaList)
+                    BeritaAdapter(berita)
 
             } catch (e: Exception) {
 
@@ -97,9 +89,7 @@ class HomeFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-
         super.onDestroyView()
-
         _binding = null
     }
 }

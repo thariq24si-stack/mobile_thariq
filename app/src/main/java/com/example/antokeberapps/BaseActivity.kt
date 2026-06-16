@@ -10,6 +10,8 @@ import com.example.antokeberapps.About.AboutFragment
 import com.example.antokeberapps.Home.HomeFragment
 import com.example.antokeberapps.Profile.ProfileFragment
 import com.example.antokeberapps.databinding.ActivityBaseBinding
+import com.example.antokeberapps.Note.NoteFragment
+import com.example.antokeberapps.Favorite.FavoriteFragment
 
 class BaseActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBaseBinding
@@ -50,6 +52,15 @@ class BaseActivity : AppCompatActivity() {
 
                 R.id.profile -> {
                     replaceFragment(ProfileFragment())
+                    true
+                }
+
+                R.id.note -> {
+                    replaceFragment(NoteFragment())
+                    true
+                }
+                R.id.favorite ->  {
+                    replaceFragment(FavoriteFragment())
                     true
                 }
 
