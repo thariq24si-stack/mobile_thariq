@@ -4,26 +4,29 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.antokeberapps.ReminderReceiver
-import com.example.antokeberapps.databinding.FragmentLayananBinding
+import com.example.antokeberapps.databinding.FragmentReminderBinding
 import java.util.Calendar
 
-class LayananFragment : Fragment() {
+class ReminderFragment : Fragment() {
 
-    private var _binding: FragmentLayananBinding? = null
+    private var _binding: FragmentReminderBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentLayananBinding.inflate(inflater, container, false)
+        _binding = FragmentReminderBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -36,13 +39,9 @@ class LayananFragment : Fragment() {
     }
 
     private fun checkNotificationPermission() {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             val permission = android.Manifest.permission.POST_NOTIFICATIONS
-            if (androidx.core.content.ContextCompat.checkSelfPermission(
-                    requireContext(),
-                    permission
-                ) != android.content.pm.PackageManager.PERMISSION_GRANTED
-            ) {
+            if (ContextCompat.checkSelfPermission(requireContext(), permission) != PackageManager.PERMISSION_GRANTED) {
                 requestPermissions(arrayOf(permission), 101)
                 return
             }
@@ -63,8 +62,8 @@ class LayananFragment : Fragment() {
     private fun scheduleReminder(minutes: Int) {
         val alarmManager = requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(requireContext(), ReminderReceiver::class.java).apply {
-            putExtra("title", "Pengingat Bina Desa")
-            putExtra("message", "Rapat koordinasi warga akan dimulai dalam $minutes menit!")
+            putExtra("title", "Reminder Bina Desa")
+            putExtra("message", "Kegiatan desa akan dimulai dalam $minutes menit!")
         }
 
         val pendingIntent = PendingIntent.getBroadcast(
@@ -85,7 +84,7 @@ class LayananFragment : Fragment() {
             )
             Toast.makeText(requireContext(), "Reminder disetel untuk $minutes menit lagi", Toast.LENGTH_SHORT).show()
         } catch (e: SecurityException) {
-            Toast.makeText(requireContext(), "Gagal menyetel alarm: Izin tidak diberikan", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Izin alarm presisi tidak diberikan", Toast.LENGTH_SHORT).show()
         }
     }
 

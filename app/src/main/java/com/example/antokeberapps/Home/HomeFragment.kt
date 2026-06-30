@@ -53,6 +53,7 @@ class HomeFragment : Fragment() {
                 0 -> tab.text = "Edukasi"
                 1 -> tab.text = "Layanan"
                 2 -> tab.text = "Informasi"
+                3 -> tab.text = "Pengingat"
             }
 
         }.attach()

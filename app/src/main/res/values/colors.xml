@@ -5,5 +5,6 @@
     <color name="bank_soft">#F5F7FA</color>
     <color name="bank_text_grey">#7C828A</color>
     <color name="bank_yellow">#FFF1C1</color>
-
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
 </resources>

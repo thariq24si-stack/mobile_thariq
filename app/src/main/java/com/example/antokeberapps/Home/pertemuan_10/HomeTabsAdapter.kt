@@ -8,7 +8,7 @@ class HomeTabsAdapter(
     activity: FragmentActivity
 ) : FragmentStateAdapter(activity) {
 
-    override fun getItemCount(): Int = 3
+    override fun getItemCount(): Int = 4
 
     override fun createFragment(position: Int): Fragment {
 
@@ -17,6 +17,7 @@ class HomeTabsAdapter(
             0 -> EdukasiFragment()
             1 -> LayananFragment()
             2 -> InformasiFragment()
+            3 -> ReminderFragment()
 
             else -> EdukasiFragment()
         }
